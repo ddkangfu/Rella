@@ -54,3 +54,6 @@ docs/_build/
 
 #sqlite db
 *.sqlite3
+
+#Mac File System File
+.DS_Store
