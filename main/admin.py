@@ -1,3 +1,12 @@
-from django.contrib import admin
+#coding=utf-8
+#!/usr/bin/python
 
-# Register your models here.
+from django.contrib import admin
+from .models import Task
+
+class TaskAdmin(admin.ModelAdmin):
+    fields  = ['name', 'svn_source', 'dist_path', 'description', 'is_enabled']
+    list_display = ('name', 'svn_source', 'description', 'create_time', 'update_time', 'is_enabled')
+
+
+admin.site.register(Task, TaskAdmin)
