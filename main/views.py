@@ -1,3 +1,6 @@
+#coding=utf-8
+#!/usr/bin/python
+
 from django.shortcuts import render_to_response
 
 
@@ -23,3 +26,4 @@ def task_edit(rqeuest, task_id):
 
 def task_delete(rqeuest, task_id):
     return render_to_response('main/task.html')
+

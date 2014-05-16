@@ -1,24 +1,11 @@
-#!-*- coding=utf-8 -*-
+#coding=utf-8
+#!/usr/bin/python
 
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 
-'''
-登录索引页
-'''templatesaccounts
-def index(request):  
-    pass  
 
-'''
-用户注册页
-'''  
-def register(request):  
-    pass  
- 
-'''
-用户登录页
-'''
 def login(request):  
-    pass  
+    return render_to_response("accounts/login1.html")
  
 '''
 用户登出页
