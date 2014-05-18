@@ -1,30 +1,18 @@
 {% extends "base.html" %}
 
 {% block head_link %}
+<link href="/static/accounts/login.css" rel="stylesheet">
 {% endblock %}
-
-{% block css_def %}
-<style>
-html,body{ height:100%;}
-</style>
-{% endblock %}
-
 {% block title%}用户登录{% endblock %}
-
-{% block body_def %}<body class="login_bg">{% endblock %}
-
-{% block body %}
-<div class="login_info">
-    <div class="login_logo"></div>
-    <ul class="login_info_d">
-        <li class="user">用户名：<input id="userName" name="userName" type="text" /></li>
-        <li class="user">密　码：<input id="userPassword" name="userPassword" type="password" /></li>
-        <li class="in_passw"><input id="remeberMe" name="remeberMe" type="checkbox" value="" />记住密码</li>
-        <li ><input id="loginbtn"  name="loginbtn" type="button" value="登　录" class="login_btn"  onclick="login()"/></li>
-    </ul>
-</div>
-{% endblock %}
-
-{% block script %}
-<script src="/static/accounts/js/login/login.js" type="text/javascript"></script>
+{% block content %}
+		<form class="form-signin" role="form" method="post" action="{% url 'login' %}">{% csrf_token %}
+			<h2 class="form-signin-heading">请登录</h2>
+			<input name="username" type="text" class="form-control" placeholder="用户名" required autofocus>
+			<input name="password" type="password" class="form-control" placeholder="密码" required>
+			<label class="checkbox">
+				<input name="remberme" type="checkbox" value="remember-me"> 记住我
+			</label>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
 {% endblock %}
