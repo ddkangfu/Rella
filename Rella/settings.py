@@ -87,3 +87,7 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),]
+
+#SVN Settings
+SVN_USER_NAME = ''
+SVN_PASSWORD = ''

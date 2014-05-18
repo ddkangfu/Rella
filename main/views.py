@@ -2,10 +2,13 @@
 #!/usr/bin/python
 
 from django.shortcuts import render_to_response
+from django.contrib.auth.decorators import login_required
+from .models import Task
 
-
+@login_required
 def index(request):
-    return render_to_response('main/index.html')
+	task_list = Task.objects.all()
+	return render_to_response('main/index.html',  {'task_list': task_list})
 
 
 def task_list(request):

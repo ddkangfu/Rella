@@ -7,6 +7,7 @@ class Task(models.Model):
     dist_path = models.CharField(max_length=500)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+    latest_runing_time = models.DateTimeField()
     description = models.CharField(max_length=5000, blank=True)
     is_enabled = models.BooleanField(default=True)
 
