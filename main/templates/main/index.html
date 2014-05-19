@@ -28,8 +28,41 @@
 	</tr>
 	{% endfor %}
 </table>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#svn_info" data-toggle="tab">SVN信息</a></li>
+  <li><a href="#release_info" data-toggle="tab">Release Note</a></li>
+  <li><a href="#build_info" data-toggle="tab">Build信息</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="svn_info">
+  	<table class="table">
+  		<tr>
+  			<td><strong>版本号：</strong></td>
+  			<td><span id="svn_revision"></span></td>
+  		</tr>
+  		<tr>
+  			<td><strong>作者：</strong></td>
+  			<td><span id="svn_author"></span></td>
+  		</tr>
+  		<tr>
+  			<td><strong>时间：</strong></td>
+  			<td><span id="svn_date"></span></td>
+  		</tr>
+  		<tr>
+  			<td><strong>日志</strong></td>
+  			<td><span id="svn_message"></span></td>
+  		</tr>  		  		  		
+  	</table>
+  </div>
+  <div class="tab-pane" id="release_info">这里是Release Note信息</div>
+  <div class="tab-pane" id="build_info">这里是Build信息</div>
+</div>
 <a href="#" class="btn btn-primary btn-lg active" role="button">下一步</a>
 {% else %}
 <p class="text-danger">暂无任务信息，请先在后台管理页面添加。</p>
 {% endif %}
+{% endblock %}
+{% block footer_script %}
+<script src="/static/main/js/main.js"></script>
 {% endblock %}

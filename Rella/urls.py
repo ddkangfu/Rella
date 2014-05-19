@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^task/delete/(?P<task_id>\d+)/$', 'main.views.task_delete', name='task_delete'),
 	url(r'^accounts/login/$', 'accounts.views.login',name="login"),  
 	url(r'^accounts/logout/$', 'accounts.views.logout',name="logout"),  
+
+    url(r'^task/svn/(?P<task_id>\d+)/$', 'main.views.get_svn_info', name='get_svn_info'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
