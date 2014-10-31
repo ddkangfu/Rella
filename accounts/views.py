@@ -48,3 +48,7 @@ def login(request):
 def logout(request):  
     auth.logout(request)
     return HttpResponseRedirect(reverse("login"))
+
+
+def setting(request):
+	return render(request, "accounts/setting.html", None)
