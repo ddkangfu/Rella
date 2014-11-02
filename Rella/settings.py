@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'main',
     'accounts',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,10 +65,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'PORT': '3336',
+        'PORT': '3306',
         'NAME': 'Rella',
         'USER': 'root',
-        'PASSWORD': 'myoa888',
+        'PASSWORD': '',
         'default-character-set': 'utf8',
     }
 }
