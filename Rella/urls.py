@@ -8,8 +8,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'main.views.index', name='index'),
-    url(r'^task/', include('main.urls')),
-    url(r'^accounts/', include('accounts.urls')),
+    url(r'^task/', include('main.urls', namespace="main")),
+    url(r'^accounts/', include('accounts.urls', namespace="accounts")),
 
     url(r'^admin/', include(admin.site.urls)),
 )
