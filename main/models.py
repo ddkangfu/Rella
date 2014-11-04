@@ -2,6 +2,7 @@
 #!/usr/bin/python
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Task(models.Model):
@@ -16,6 +17,7 @@ class Task(models.Model):
     latest_runing_time = models.DateTimeField()
     description = models.CharField(max_length=5000, blank=True)
     is_enabled = models.BooleanField(default=True)
+    owner = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.name
