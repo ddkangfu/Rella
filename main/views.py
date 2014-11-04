@@ -8,7 +8,9 @@ import time
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView, RedirectView, FormView
+from django.views.generic import (ListView, DetailView, CreateView,
+                                  TemplateView, UpdateView, RedirectView,
+                                  FormView, DeleteView)
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db import transaction
@@ -16,14 +18,12 @@ from django.utils.decorators import method_decorator
 
 from .models import Task
 
+
 @login_required
 def index(request):
     task_list = Task.objects.all()
     return render(request, 'main/index.html',  {'task_list': task_list})
 
-
-#def task_list(request):
-#    return render_to_response('main/task.html')
 
 class TaskListView(ListView):
     template_name = 'main/task.html'
@@ -34,13 +34,12 @@ class TaskListView(ListView):
     #    return queryset
 
 
-def task(rqeuest, task_id):
-    return render_to_response('main/task.html')
+class DetailTaskView(DetailView):
+    template_name = 'main/task.html'
+    model = Task
 
 
-#def task_add(rqeuest):
-#    return render_to_response('main/task.html')
-class CreateTeskView(CreateView):
+class CreateTaskView(CreateView):
     template_name = 'main/task.html'
     model = Task
 
@@ -62,12 +61,18 @@ class CreateTeskView(CreateView):
         return reverse('')
 
 
-def task_edit(rqeuest, task_id):
-    return render_to_response('main/task.html')
+class UpdateTaskView(UpdateView):
+    template_name = 'main/task.html'
+    model = Task
+
+    #@method_decorator(login_required)
+    #def post(self):
+    #    pass
 
 
-def task_delete(rqeuest, task_id):
-    return render_to_response('main/task.html')
+class DeleteTaskView(DeleteView):
+    template_name = 'main/task.html'
+    model = Task
 
 
 def get_svn_info(request, task_id):
