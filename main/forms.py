@@ -2,8 +2,7 @@
 #!/usr/bin/python
 
 from django import forms
-from .models import 
-
+from .models import Task
 
 class TaskForm(forms.ModelForm):
     class Meta:

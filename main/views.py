@@ -17,6 +17,7 @@ from django.db import transaction
 from django.utils.decorators import method_decorator
 
 from .models import Task
+from .forms import TaskForm
 
 
 @login_required
@@ -42,23 +43,25 @@ class DetailTaskView(DetailView):
 class CreateTaskView(CreateView):
     template_name = 'main/task_form.html'
     model = Task
+    form_class = TaskForm
 
-    @method_decorator(login_required)
-    def post(self, request, *args, **kwargs):
-        pass
+    #@method_decorator(login_required)
+    #def post(self, request, *args, **kwargs):
+    #    pass
 
-    @method_decorator(transaction.atomic)
-    def form_valid(self, form):
-        pass
+    #@method_decorator(transaction.atomic)
+    #def form_valid(self, form):
+    #    pass
 
     def get_context_data(self, **kwargs):
-        pass
+        ctx = super(CreateTaskView, self).get_context_data(**kwargs)
+        return ctx
 
-    def get_item(self):
-        pass
+    #def get_item(self):
+    #    pass
 
-    def get_success_url(self):
-        return reverse('')
+    #def get_success_url(self):
+    #    return reverse('')
 
 
 class UpdateTaskView(UpdateView):

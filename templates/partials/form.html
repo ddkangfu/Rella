@@ -5,7 +5,12 @@
     {% if not method == "get" %}{% csrf_token %}{% endif %}
     {% include 'partials/form_fields.html' %}
     <div class="form-actions">
+        {% if not read_only %}
         <button class="btn btn-large btn-primary" type="submit">{% trans "Save" %}</button>
-        {% trans "or" %} <a href="#" onclick="history.go(-1);return false" >{% trans "cancel" %}</a>.
+        {% trans "or" %} 
+        <a href="#" onclick="history.go(-1);return false" >{% trans "cancel" %}</a>
+        {% else %}
+        <a href="#" onclick="history.go(-1);return false" >返回</a>
+        {% endif %}
     </div>
 </form>
