@@ -40,7 +40,7 @@ class DetailTaskView(DetailView):
 
 
 class CreateTaskView(CreateView):
-    template_name = 'main/task.html'
+    template_name = 'main/task_form.html'
     model = Task
 
     @method_decorator(login_required)
