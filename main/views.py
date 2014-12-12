@@ -1,7 +1,7 @@
 #coding=utf-8
 #!/usr/bin/python
 
-import pysvn
+#import pysvn
 import json
 import time
 
@@ -27,12 +27,12 @@ def index(request):
 
 
 class TaskListView(ListView):
-    template_name = 'main/task.html'
+    template_name = 'main/task/list.html'
     model = Task
 
-    #def get_queryset(self):
-    #    queryset = Task.objects.filter(zone=self.kwargs.get('zone', None), is_removed=False).order_by('-position')
-    #    return queryset
+    def get_queryset(self):
+        queryset = Task.objects.filter(owner=self.request.user)
+        return queryset
 
 
 class DetailTaskView(DetailView):
@@ -79,6 +79,7 @@ class DeleteTaskView(DeleteView):
 
 
 def get_svn_info(request, task_id):
+    """
     task = get_object_or_404(Task, pk=task_id)
     client = pysvn.Client()
     log_list = client.log(task.svn_source, limit=1)
@@ -94,6 +95,7 @@ def get_svn_info(request, task_id):
                                    encoding="utf-8"),
                         content_type='application/json;charset=utf-8',
                         status=200)
-
+    """
+    pass
 
 
