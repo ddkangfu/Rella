@@ -65,12 +65,11 @@ class CreateTaskView(CreateView):
 
 
 class UpdateTaskView(UpdateView):
-    template_name = 'main/task.html'
+    template_name = 'main/task/update.html'
     model = Task
 
-    #@method_decorator(login_required)
-    #def post(self):
-    #    pass
+    def get_success_url(self):
+        return reverse('main:task_list')
 
 
 class DeleteTaskView(DeleteView):

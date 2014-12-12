@@ -25,7 +25,7 @@
         <td>{{ task.svn_source }}</td>
         <td>{{ task.dist_path }}</td>
         <td>{{ task.latest_runing_time|date:"Y-m-d H:i:s" }}</td>
-        <td><a href="#">编辑</a></td>
+        <td><a href="{% url 'main:task_update' task.id %}">编辑</a></td>
     </tr>
     {% endfor %}
 {% endblock %}
