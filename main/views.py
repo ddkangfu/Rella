@@ -41,9 +41,14 @@ class DetailTaskView(DetailView):
 
 
 class CreateTaskView(CreateView):
-    template_name = 'main/task_form.html'
+    template_name = 'main/task/update.html'
     model = Task
-    form_class = TaskForm
+
+    def get_context_data(self, **kwargs):
+        ctx = super(CreateTaskView, self).get_context_data(**kwargs)
+        ctx['operation'] = '添加'
+        return ctx
+    #form_class = TaskForm
 
     #@method_decorator(login_required)
     #def post(self, request, *args, **kwargs):
@@ -53,20 +58,22 @@ class CreateTaskView(CreateView):
     #def form_valid(self, form):
     #    pass
 
-    def get_context_data(self, **kwargs):
-        ctx = super(CreateTaskView, self).get_context_data(**kwargs)
-        return ctx
+    #def get_context_data(self, **kwargs):
+    #    ctx = super(CreateTaskView, self).get_context_data(**kwargs)
+    #    return ctx
 
-    #def get_item(self):
-    #    pass
-
-    #def get_success_url(self):
-    #    return reverse('')
+    def get_success_url(self):
+        return reverse('main:task_list')
 
 
 class UpdateTaskView(UpdateView):
     template_name = 'main/task/update.html'
     model = Task
+
+    def get_context_data(self, **kwargs):
+        ctx = super(UpdateTaskView, self).get_context_data(**kwargs)
+        ctx['operation'] = '编辑'
+        return ctx
 
     def get_success_url(self):
         return reverse('main:task_list')
