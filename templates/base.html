@@ -6,9 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title%}{% endblock %}</title>
-    <link href="{{ STATIC_URL }}css/dashboard.css" rel="stylesheet">
-{#  <link rel="stylesheet" href="{{ STATIC_URL }}plugin/bootstrap/3.0.3/css/bootstrap.min.css">#}
-{#  <link rel="stylesheet" href="{{ STATIC_URL }}css/site.css">#}
+{#  <link href="{{ STATIC_URL }}css/dashboard.css" rel="stylesheet">#}
+    <link rel="stylesheet" href="{{ STATIC_URL }}plugin/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/site.css">
     {% block head_link %} {% endblock %}
     {% block css_def %} {% endblock %}
     {% block head_script %}{% endblock %}
@@ -65,7 +65,7 @@
     </div> 
     <script src="/static/plugin/jquery/1.11.1/jquery.min.js"></script>
     <script src="/static/plugin/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="{{ STATIC_URL }}js/mall.min.js"></script>
+{#    <script src="{{ STATIC_URL }}js/mall.min.js"></script> #}
     {% block footer_script %}{% endblock %}
   </body>
 </html>
